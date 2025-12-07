@@ -99,7 +99,7 @@ export default function Header() {
                                             </ul>
                                         </li>
 
-                                        <li><Link href="/about">About Us</Link></li>
+                                        <li><Link href="/about-us">About Us</Link></li>
 
                                         {/* Pages Dropdown */}
                                         <li className="dropdown">

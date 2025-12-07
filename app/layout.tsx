@@ -35,13 +35,13 @@ export default function RootLayout({
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/assets/images/favicons/favicon-32x32.png"
+          href="/assets/images/favicons/power.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/assets/images/favicons/favicon-16x16.png"
+          href="/assets/images/favicons/power.png"
         />
         <link
           rel="manifest"
@@ -90,6 +90,9 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/module-css/pricing.css" />
         <link rel="stylesheet" href="/assets/css/module-css/blog.css" />
         <link rel="stylesheet" href="/assets/css/module-css/cta.css" />
+        <link rel="stylesheet" href="assets/css/module-css/page-header.css" />
+        <link rel="stylesheet" href="assets/css/module-css/team.css" />
+        <link rel="stylesheet" href="assets/css/module-css/contact.css" />
 
         {/* Template Styles */}
         <link rel="stylesheet" href="/assets/css/style.css" />
@@ -99,7 +102,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
 
-          <Script src="/assets/js/jquery-3.6.0.min.js" strategy="beforeInteractive" />
+        <Script src="/assets/js/jquery-3.6.0.min.js" strategy="beforeInteractive" />
         <Script src="/assets/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
         <Script src="/assets/js/jarallax.min.js" strategy="lazyOnload" />
         <Script src="/assets/js/jquery.ajaxchimp.min.js" strategy="lazyOnload" />
