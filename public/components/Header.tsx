@@ -6,6 +6,8 @@ import Image from "next/image";
 export default function Header() {
     return (
         <>
+      
+
             <header className="main-header">
                 {/* Top Bar */}
                 <div className="main-menu__top">
@@ -183,9 +185,11 @@ export default function Header() {
                     </div>
                 </nav>
             </header>
+            {/* stricky-header */}
              <div className="stricky-header stricked-menu main-menu">
             <div className="sticky-header__content"></div>
         </div>
+          {/* stricky-header */}
       </>
     );
 }

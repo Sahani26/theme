@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -96,6 +97,28 @@ export default function RootLayout({
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
+
+          <Script src="/assets/js/jquery-3.6.0.min.js" strategy="beforeInteractive" />
+        <Script src="/assets/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
+        <Script src="/assets/js/jarallax.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/jquery.ajaxchimp.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/jquery.appear.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/swiper.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/jquery.circle-progress.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/jquery.magnific-popup.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/jquery.validate.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/odometer.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/wNumb.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/wow.js" strategy="lazyOnload" />
+        <Script src="/assets/js/isotope.js" strategy="lazyOnload" />
+        <Script src="/assets/js/owl.carousel.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/jquery-ui.js" strategy="lazyOnload" />
+        <Script src="/assets/js/jquery.nice-select.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/countdown.min.js" strategy="lazyOnload" />
+        <Script src="/assets/js/gsap/gsap.js" strategy="lazyOnload" />
+        <Script src="/assets/js/gsap/ScrollTrigger.js" strategy="lazyOnload" />
+        <Script src="/assets/js/gsap/SplitText.js" strategy="lazyOnload" />
+        <Script src="/assets/js/script.js" strategy="lazyOnload" />
       </body>
     </html>
   );
