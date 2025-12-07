@@ -12,6 +12,12 @@ import headerImg1 from "@/public/assets/images/resources/page-header-img-1.png";
 import Header from "@/public/components/Header";
 import Footer from "@/public/components/Footer";
 import CTA from "@/public/components/CTA";
+
+export const metadata = {
+  title: "Meet Our Team – Skilled & Experienced Professionals | Your Website Name",
+  description: "Explore our team of experienced professionals dedicated to delivering quality and exceptional services.",
+};
+
 export default function page() {
     return (
         <>

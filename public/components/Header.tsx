@@ -71,32 +71,9 @@ export default function Header() {
 
                                     {/* Menu List */}
                                     <ul className="main-menu__list">
-                                        <li className="dropdown">
+                                        <li>
                                             <Link href="/">Home</Link>
-                                            <ul>
-                                                <li><Link href="/">Home One</Link></li>
-                                                <li><Link href="/index2">Home Two</Link></li>
-                                                <li><Link href="/index3">Home Three</Link></li>
-                                                <li><Link href="/index-dark">Home Dark</Link></li>
-
-                                                <li className="dropdown">
-                                                    <a href="#">Header Styles</a>
-                                                    <ul>
-                                                        <li><Link href="/">Header One</Link></li>
-                                                        <li><Link href="/index2">Header Two</Link></li>
-                                                        <li><Link href="/index3">Header Three</Link></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li className="dropdown">
-                                                    <a href="#">One Page Styles</a>
-                                                    <ul>
-                                                        <li><Link href="/index-one-page">One Page One</Link></li>
-                                                        <li><Link href="/index2-one-page">One Page Two</Link></li>
-                                                        <li><Link href="/index3-one-page">One Page Three</Link></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                          
                                         </li>
 
                                         <li><Link href="/about-us">About Us</Link></li>

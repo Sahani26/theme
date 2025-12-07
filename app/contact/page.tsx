@@ -6,6 +6,12 @@ import contactImg from "@/public/assets/images/team/team-details-img-1.jpg";
 import Header from "@/public/components/Header" 
 import Footer from "@/public/components/Footer"
 import CTA from "@/public/components/CTA"
+
+export const metadata = {
+  title: "Contact Us | Your Website Name",
+  description: "Get in touch with us for inquiries, support, or business opportunities.",
+};
+
 export default function Contact() {
   return (
     <>

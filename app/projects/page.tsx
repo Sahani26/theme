@@ -5,7 +5,13 @@ import CTA from "@/public/components/CTA"
  import Project from "@/public/components/Project"
 import Image from "next/image"
 import shape1 from "@/public/assets/images/shapes/page-header-shape-1.png";
-import headerImg1 from "@/public/assets/images/resources/page-header-img-1.png";    
+import headerImg1 from "@/public/assets/images/resources/page-header-img-1.png";   
+// ⭐ SEO Metadata
+export const metadata = {
+  title: "Our Projects | Your Website Name",
+  description: "Explore our latest projects, portfolio, and completed works.",
+};
+
 export default function page() {
   return (
     <>

@@ -1,4 +1,4 @@
-"use client";
+ 
 
 import Image from "next/image";
 
@@ -8,6 +8,10 @@ import teamDetailsImg from "@/public/assets/images/team/team-details-img-1.jpg";
 import Header from "@/public/components/Header";
 import CTA from "@/public/components/CTA";
 import Footer from "@/public/components/Footer";
+export const metadata = {
+  title: "Team Member Details | Your Website Name",
+  description: "Explore detailed profile, biography, skills, and experience of our team member.",
+};
 
 export default function TeamDetails() {
   return (

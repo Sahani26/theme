@@ -1,4 +1,4 @@
-"use client";
+ 
 
 import Image from "next/image";
 import Header from "@/public/components/Header";
@@ -9,7 +9,13 @@ import Footer from "@/public/components/Footer";
 import shape1 from "@/public/assets/images/shapes/page-header-shape-1.png";
 import headerImg from "@/public/assets/images/resources/page-header-img-1.png";
 
-export default function AccountPage() {
+
+// ⭐ This will now work
+export const metadata = {
+  title: "My Account – Manage Login & Register | Your Website Name",
+  description: "Access your account to login, register, and manage your settings.",
+};
+export default async function AccountPage() {
     return (
         <>
         <Header/>

@@ -94,6 +94,14 @@ export default function RootLayout({
         <link rel="stylesheet" href="assets/css/module-css/team.css" />
         <link rel="stylesheet" href="assets/css/module-css/contact.css" />
 
+        <link rel="stylesheet" href="assets/css/module-css/shop.css" />
+
+        <link rel="stylesheet" href="assets/css/module-css/faq.css" />
+
+        <link rel="stylesheet" href="assets/css/module-css/coming-soon.css" />
+
+        <link rel="stylesheet" href="assets/css/module-css/error-page.css" />
+
         {/* Template Styles */}
         <link rel="stylesheet" href="/assets/css/style.css" />
         <link rel="stylesheet" href="/assets/css/responsive.css" />
