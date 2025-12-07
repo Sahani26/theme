@@ -1,8 +1,6 @@
-import Image from "next/image";
+
 import Header from '../public/components/Header'
-import Service from '../public/components/Service'
-// import Hero from '../public/components/Hero'
-// import ServicesOne from '../public/components/ServicesOne'
+import Service from '../public/components/Service' 
 import About from '../public/components/About'
 import ServicesTwo from "@/public/components/ServicesTwo";
 import Testimonials from '../public/components/Testimonials'
@@ -15,27 +13,31 @@ import Blog from '../public/components/Blog'
 import CTA from '../public/components/CTA'
 import Footer from '../public/components/Footer'
 import Sleder from '../public/components/Slider'
+import Preloader from '@/public/components/Preloader';
+import MobileNav from '@/public/components/MobileNav';
 
 export default function Home() {
   return (
     <>
+    {/* <Preloader/> */}
       <div className="page-wrapper">
         <Header />
         <Sleder />
         <Service />
-
         <About />
         <ServicesTwo />
         <Testimonials />
         <Brands />
-        <Project />
         <Video />
         <Counter />
+         <Project />
         <Pricing />
         <Blog />
+        
         <CTA />
         <Footer />
       </div>
+      <MobileNav/>
     </>
   );
 }

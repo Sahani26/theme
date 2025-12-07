@@ -75,6 +75,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/nice-select.css" />
         <link rel="stylesheet" href="/assets/css/jquery-ui.css" />
         <link rel="stylesheet" href="/assets/css/twentytwenty.css" />
+        <link rel="stylesheet" href="/assets/css/mycustom.css" />
 
         {/* Module CSS */}
         <link rel="stylesheet" href="/assets/css/module-css/slider.css" />
