@@ -26,31 +26,14 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Favicons */}
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/assets/images/favicons/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/assets/images/favicons/power.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/assets/images/favicons/power.png"
-        />
-        <link
-          rel="manifest"
-          href="/assets/images/favicons/site.webmanifest"
-        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/power.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/power.png" />
+        <link rel="manifest" href="/assets/images/favicons/site.webmanifest" />
 
         {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
@@ -60,7 +43,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
 
-        {/* Core CSS Files */}
+        {/* Core CSS */}
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/assets/css/animate.min.css" />
         <link rel="stylesheet" href="/assets/css/custom-animate.css" />
@@ -90,17 +73,13 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/module-css/pricing.css" />
         <link rel="stylesheet" href="/assets/css/module-css/blog.css" />
         <link rel="stylesheet" href="/assets/css/module-css/cta.css" />
-        <link rel="stylesheet" href="assets/css/module-css/page-header.css" />
-        <link rel="stylesheet" href="assets/css/module-css/team.css" />
-        <link rel="stylesheet" href="assets/css/module-css/contact.css" />
-
-        <link rel="stylesheet" href="assets/css/module-css/shop.css" />
-
-        <link rel="stylesheet" href="assets/css/module-css/faq.css" />
-
-        <link rel="stylesheet" href="assets/css/module-css/coming-soon.css" />
-
-        <link rel="stylesheet" href="assets/css/module-css/error-page.css" />
+        <link rel="stylesheet" href="/assets/css/module-css/page-header.css" />
+        <link rel="stylesheet" href="/assets/css/module-css/team.css" />
+        <link rel="stylesheet" href="/assets/css/module-css/contact.css" />
+        <link rel="stylesheet" href="/assets/css/module-css/shop.css" />
+        <link rel="stylesheet" href="/assets/css/module-css/faq.css" />
+        <link rel="stylesheet" href="/assets/css/module-css/coming-soon.css" />
+        <link rel="stylesheet" href="/assets/css/module-css/error-page.css" />
 
         {/* Template Styles */}
         <link rel="stylesheet" href="/assets/css/style.css" />
@@ -110,8 +89,11 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
 
+        {/* Core JS */}
         <Script src="/assets/js/jquery-3.6.0.min.js" strategy="beforeInteractive" />
         <Script src="/assets/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
+
+        {/* Plugins */}
         <Script src="/assets/js/jarallax.min.js" strategy="lazyOnload" />
         <Script src="/assets/js/jquery.ajaxchimp.min.js" strategy="lazyOnload" />
         <Script src="/assets/js/jquery.appear.min.js" strategy="lazyOnload" />
@@ -127,9 +109,13 @@ export default function RootLayout({
         <Script src="/assets/js/jquery-ui.js" strategy="lazyOnload" />
         <Script src="/assets/js/jquery.nice-select.min.js" strategy="lazyOnload" />
         <Script src="/assets/js/countdown.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/gsap/gsap.js" strategy="lazyOnload" />
-        <Script src="/assets/js/gsap/ScrollTrigger.js" strategy="lazyOnload" />
-        <Script src="/assets/js/gsap/SplitText.js" strategy="lazyOnload" />
+
+        {/* ✅ GSAP must load BEFORE script.js */}
+        <Script src="/assets/js/gsap/gsap.js" strategy="beforeInteractive" />
+        <Script src="/assets/js/gsap/ScrollTrigger.js" strategy="beforeInteractive" />
+        <Script src="/assets/js/gsap/SplitText.js" strategy="beforeInteractive" />
+
+        {/* Template Main JS */}
         <Script src="/assets/js/script.js" strategy="lazyOnload" />
       </body>
     </html>
