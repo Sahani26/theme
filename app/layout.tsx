@@ -53,8 +53,8 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/jquery.magnific-popup.css" />
         <link rel="stylesheet" href="/assets/css/odometer.min.css" />
         <link rel="stylesheet" href="/assets/css/flaticon.css" />
-        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css" />
+        {/* <link rel="stylesheet" href="/assets/css/owl.carousel.min.css" /> */}
+        {/* <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css" /> */}
         <link rel="stylesheet" href="/assets/css/nice-select.css" />
         <link rel="stylesheet" href="/assets/css/jquery-ui.css" />
         <link rel="stylesheet" href="/assets/css/twentytwenty.css" />
@@ -88,7 +88,7 @@ export default function RootLayout({
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-
+     {/* <Script src="/assets/js/wow.js" strategy="afterInteractive" /> */}
    
         {/* <Script src="/assets/js/jquery-3.6.0.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
@@ -103,7 +103,7 @@ export default function RootLayout({
         <Script src="/assets/js/jquery.validate.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/odometer.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/wNumb.min.js" strategy="afterInteractive" />
-        <Script src="/assets/js/wow.js" strategy="afterInteractive" />
+   
         <Script src="/assets/js/isotope.js" strategy="afterInteractive" />
         <Script src="/assets/js/owl.carousel.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/jquery-ui.js" strategy="afterInteractive" />

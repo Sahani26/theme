@@ -1,4 +1,6 @@
 h3.odometer {
     color: #fff;
 }
- 
+ .main-slider__content,h2.main-slider__title{
+    text-align: left;
+ }
