@@ -11,11 +11,11 @@ import shape1 from "@/public/assets/images/shapes/page-header-shape-1.png";
 import headerImg1 from "@/public/assets/images/resources/page-header-img-1.png";
 import Header from "@/public/components/Header";
 import Footer from "@/public/components/Footer";
-import CTA from "@/public/components/CTA";
+import CTA from "@/public/components/CTA"; 
 
 export const metadata = {
-  title: "Meet Our Team – Skilled & Experienced Professionals | Your Website Name",
-  description: "Explore our team of experienced professionals dedicated to delivering quality and exceptional services.",
+    title: "Meet Our Team – Skilled & Experienced Professionals | Your Website Name",
+    description: "Explore our team of experienced professionals dedicated to delivering quality and exceptional services.",
 };
 
 export default function page() {
@@ -190,7 +190,7 @@ export default function page() {
                 </section>
             </div>
             <CTA />
-            <Footer />
+            <Footer /> 
         </>
     )
 }

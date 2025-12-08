@@ -1,9 +1,9 @@
- 
+
 
 import Image from "next/image";
- import Header from "@/public/components/Header";   
- import CTA from "@/public/components/CTA";
- import Footer from "@/public/components/Footer";
+import Header from "@/public/components/Header";
+import CTA from "@/public/components/CTA";
+import Footer from "@/public/components/Footer";
 
 // Images
 import shape1 from "@/public/assets/images/shapes/page-header-shape-1.png";

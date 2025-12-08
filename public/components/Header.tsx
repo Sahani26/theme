@@ -1,14 +1,208 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+    const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [isSticky, setIsSticky] = useState(false);
+    const [expandedDropdowns, setExpandedDropdowns] = useState<string[]>([]);
+    const [searchQuery, setSearchQuery] = useState("");
+    const pathname = usePathname();
+    const headerRef = useRef<HTMLElement>(null);
+
+    // Handle sticky header on scroll
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setIsSticky(true);
+            } else {
+                setIsSticky(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Lock body scroll when mobile nav or search is open
+    useEffect(() => {
+        if (isMobileNavOpen || isSearchOpen) {
+            document.body.classList.add("locked");
+        } else {
+            document.body.classList.remove("locked");
+        }
+
+        return () => {
+            document.body.classList.remove("locked");
+        };
+    }, [isMobileNavOpen, isSearchOpen]);
+
+    const toggleMobileNav = () => {
+        setIsMobileNavOpen(!isMobileNavOpen);
+        if (isSearchOpen) setIsSearchOpen(false);
+    };
+
+    const toggleSearch = () => {
+        setIsSearchOpen(!isSearchOpen);
+        if (isMobileNavOpen) setIsMobileNavOpen(false);
+    };
+
+    const closeMobileNav = () => {
+        setIsMobileNavOpen(false);
+    };
+
+    const toggleDropdown = (id: string) => {
+        setExpandedDropdowns(prev =>
+            prev.includes(id)
+                ? prev.filter(item => item !== id)
+                : [...prev, id]
+        );
+    };
+
+    const isActive = (path: string) => {
+        return pathname === path;
+    };
+
+    const handleSearch = () => {
+        if (searchQuery.trim()) {
+            console.log("Searching for:", searchQuery);
+            // Add your search logic here
+        }
+    };
+
+    const MenuItem = ({ href, children, dropdown, dropdownId, items }: any) => {
+        const hasDropdown = dropdown && items;
+        const isExpanded = expandedDropdowns.includes(dropdownId);
+
+        return (
+            <li className={`${hasDropdown ? 'dropdown' : ''} ${isExpanded ? 'expanded' : ''}`}>
+                {hasDropdown ? (
+                    <>
+                        <a href="#">{children}</a>
+                        <ul style={{ display: isExpanded ? 'block' : '' }}>
+                            {items.map((item: any, index: number) => (
+                                <MenuItem key={index} {...item} />
+                            ))}
+                        </ul>
+                    </>
+                ) : (
+                    <Link href={href} className={isActive(href) ? 'current' : ''}>
+                        {children}
+                    </Link>
+                )}
+            </li>
+        );
+    };
+
+    const MobileMenuItem = ({ href, children, dropdown, dropdownId, items }: any) => {
+        const hasDropdown = dropdown && items;
+        const isExpanded = expandedDropdowns.includes(dropdownId);
+
+        return (
+            <li className={`${hasDropdown ? 'dropdown' : ''} ${isExpanded ? 'expanded' : ''}`}>
+                {hasDropdown ? (
+                    <>
+                        <a href="#">
+                            {children}
+                            <button
+                                className={`dropdown-btn ${isExpanded ? 'expanded' : ''}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    toggleDropdown(dropdownId);
+                                }}
+                                aria-label="dropdown toggler"
+                            >
+                                <i className="fa fa-angle-down"></i>
+                            </button>
+                        </a>
+                        <ul style={{ display: isExpanded ? 'block' : 'none' }}>
+                            {items.map((item: any, index: number) => (
+                                <MobileMenuItem key={index} {...item} />
+                            ))}
+                        </ul>
+                    </>
+                ) : (
+                    <Link href={href} onClick={closeMobileNav}>
+                        {children}
+                    </Link>
+                )}
+            </li>
+        );
+    };
+
+    const menuData = [
+        { href: "/", children: "Home" },
+        { href: "/about-us", children: "About Us" },
+        {
+            dropdown: true,
+            dropdownId: "pages",
+            children: "Pages",
+            items: [
+                { href: "/team", children: "Team" },
+                { href: "/team-details", children: "Team Details" },
+                {
+                    dropdown: true,
+                    dropdownId: "projects",
+                    children: "Projects",
+                    items: [
+                        { href: "/projects", children: "Projects" },
+                        { href: "/project-details", children: "Project Details" }
+                    ]
+                },
+                { href: "/testimonials", children: "Testimonials" },
+                { href: "/pricing", children: "Pricing" },
+                { href: "/faq", children: "Faq" },
+                { href: "/404", children: "404 Error" },
+                { href: "/coming-soon", children: "Coming Soon" }
+            ]
+        },
+        {
+            dropdown: true,
+            dropdownId: "services",
+            children: "Services",
+            items: [
+                { href: "/services", children: "Services" },
+                { href: "/electric-panel-repair", children: "Electric Panel Repair" },
+                { href: "/short-circuit-repair", children: "Short Circuit Repair" },
+                { href: "/commercial-services", children: "Commercial Services" },
+                { href: "/installing-ceiling-fan", children: "Installing Ceiling Fan" },
+                { href: "/lighting-fixtures", children: "Lighting Fixtures" },
+                { href: "/maintenance-service", children: "Maintenance Service" }
+            ]
+        },
+        {
+            dropdown: true,
+            dropdownId: "shop",
+            children: "Shop",
+            items: [
+                { href: "/shop", children: "Products" },
+                { href: "/shop-details", children: "Products Details" },
+                { href: "/cart", children: "Cart" },
+                { href: "/checkout", children: "Checkout" },
+                { href: "/wishlist", children: "Wishlist" },
+                { href: "/account", children: "My Account" }
+            ]
+        },
+        {
+            dropdown: true,
+            dropdownId: "blog",
+            children: "Blog",
+            items: [
+                { href: "/blog", children: "Blog" },
+                { href: "/blog-list", children: "Blog List" },
+                { href: "/blog-details", children: "Blog Details" }
+            ]
+        },
+        { href: "/contact", children: "Contact" }
+    ];
+
     return (
         <>
-      
-
-            <header className="main-header">
+            <header className="main-header" ref={headerRef}>
                 {/* Top Bar */}
                 <div className="main-menu__top">
                     <div className="main-menu__top-inner">
@@ -19,8 +213,8 @@ export default function Header() {
                                 </div>
                                 <div className="text">
                                     <p>
-                                        <a href="mailto:example@gamil.com">
-                                            example@gamil.com
+                                        <a href="mailto:example@gmail.com">
+                                            example@gmail.com
                                         </a>
                                     </p>
                                 </div>
@@ -50,7 +244,6 @@ export default function Header() {
                 <nav className="main-menu">
                     <div className="main-menu__wrapper">
                         <div className="main-menu__wrapper-inner">
-
                             {/* Logo + Menu */}
                             <div className="main-menu__left">
                                 <div className="main-menu__logo">
@@ -65,80 +258,22 @@ export default function Header() {
                                 </div>
 
                                 <div className="main-menu__main-menu-box">
-                                    <a href="#" className="mobile-nav__toggler">
+                                    <a
+                                        href="#"
+                                        className="mobile-nav__toggler"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            toggleMobileNav();
+                                        }}
+                                    >
                                         <i className="fa fa-bars"></i>
                                     </a>
 
-                                    {/* Menu List */}
+                                    {/* Desktop Menu */}
                                     <ul className="main-menu__list">
-                                        <li>
-                                            <Link href="/">Home</Link>
-                                          
-                                        </li>
-
-                                        <li><Link href="/about-us">About Us</Link></li>
-
-                                        {/* Pages Dropdown */}
-                                        <li className="dropdown">
-                                            <a href="#">Pages</a>
-                                            <ul>
-                                                <li><Link href="/team">Team</Link></li>
-                                                <li><Link href="/team-details">Team Details</Link></li>
-
-                                                <li className="dropdown">
-                                                    <a href="#">Projects</a>
-                                                    <ul>
-                                                        <li><Link href="/projects">Projects</Link></li>
-                                                        <li><Link href="/project-details">Project Details</Link></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li><Link href="/testimonials">Testimonials</Link></li>
-                                                <li><Link href="/pricing">Pricing</Link></li>
-                                                <li><Link href="/faq">Faq</Link></li>
-                                                <li><Link href="/404">404 Error</Link></li>
-                                                <li><Link href="/coming-soon">Coming Soon</Link></li>
-                                            </ul>
-                                        </li>
-
-                                        {/* Services */}
-                                        <li className="dropdown">
-                                            <a href="#">Services</a>
-                                            <ul>
-                                                <li><Link href="/services">Services</Link></li>
-                                                <li><Link href="/electric-panel-repair">Electric Panel Repair</Link></li>
-                                                <li><Link href="/short-circuit-repair">Short Circuit Repair</Link></li>
-                                                <li><Link href="/commercial-services">Commercial Services</Link></li>
-                                                <li><Link href="/installing-ceiling-fan">Installing Ceiling Fan</Link></li>
-                                                <li><Link href="/lighting-fixtures">Lighting Fixtures</Link></li>
-                                                <li><Link href="/maintenance-service">Maintenance Service</Link></li>
-                                            </ul>
-                                        </li>
-
-                                        {/* Shop */}
-                                        <li className="dropdown">
-                                            <a href="#">Shop</a>
-                                            <ul>
-                                                <li><Link href="/shop">Products</Link></li>
-                                                <li><Link href="/shop-details">Products Details</Link></li>
-                                                <li><Link href="/cart">Cart</Link></li>
-                                                <li><Link href="/checkout">Checkout</Link></li>
-                                                <li><Link href="/wishlist">Wishlist</Link></li>
-                                                <li><Link href="/account">My Account</Link></li>
-                                            </ul>
-                                        </li>
-
-                                        {/* Blog */}
-                                        <li className="dropdown">
-                                            <a href="#">Blog</a>
-                                            <ul>
-                                                <li><Link href="/blog">Blog</Link></li>
-                                                <li><Link href="/blog-list">Blog List</Link></li>
-                                                <li><Link href="/blog-details">Blog Details</Link></li>
-                                            </ul>
-                                        </li>
-
-                                        <li><Link href="/contact">Contact</Link></li>
+                                        {menuData.map((item, index) => (
+                                            <MenuItem key={index} {...item} />
+                                        ))}
                                     </ul>
                                 </div>
                             </div>
@@ -147,7 +282,14 @@ export default function Header() {
                             <div className="main-menu__right">
                                 <div className="main-menu__search-and-btn-box">
                                     <div className="main-menu__search-box">
-                                        <a href="#" className="main-menu__search search-toggler icon-search-interface-symbol"></a>
+                                        <a
+                                            href="#"
+                                            className="main-menu__search search-toggler icon-search-interface-symbol"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                toggleSearch();
+                                            }}
+                                        ></a>
                                     </div>
 
                                     <div className="main-menu__btn-box">
@@ -157,16 +299,171 @@ export default function Header() {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </nav>
             </header>
-            {/* stricky-header */}
-             <div className="stricky-header stricked-menu main-menu">
-            <div className="sticky-header__content"></div>
-        </div>
-          {/* stricky-header */}
-      </>
+
+            {/* Sticky Header */}
+            <div className={`stricky-header stricked-menu main-menu ${isSticky ? 'stricky-fixed' : ''}`}>
+                <div className="sticky-header__content">
+                    <nav className="main-menu">
+                        <div className="main-menu__wrapper">
+                            <div className="main-menu__wrapper-inner">
+                                <div className="main-menu__left">
+                                    <div className="main-menu__logo">
+                                        <Link href="/">
+                                            <Image
+                                                src="/assets/images/resources/logo-1.png"
+                                                alt="logo"
+                                                width={150}
+                                                height={50}
+                                            />
+                                        </Link>
+                                    </div>
+
+                                    <div className="main-menu__main-menu-box">
+                                        <ul className="main-menu__list">
+                                            {menuData.map((item, index) => (
+                                                <MenuItem key={index} {...item} />
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div className="main-menu__right">
+                                    <div className="main-menu__search-and-btn-box">
+                                        <div className="main-menu__search-box">
+                                            <a
+                                                href="#"
+                                                className="main-menu__search search-toggler icon-search-interface-symbol"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    toggleSearch();
+                                                }}
+                                            ></a>
+                                        </div>
+
+                                        <div className="main-menu__btn-box">
+                                            <Link href="/contact" className="main-menu__btn thm-btn">
+                                                Get a quote
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            {/* Mobile Nav */}
+            <div className={`mobile-nav__wrapper ${isMobileNavOpen ? 'expanded' : ''}`}>
+                <div
+                    className="mobile-nav__overlay mobile-nav__toggler"
+                    onClick={toggleMobileNav}
+                ></div>
+
+                <div className="mobile-nav__content">
+                    <span
+                        className="mobile-nav__close mobile-nav__toggler"
+                        onClick={toggleMobileNav}
+                    >
+                        <i className="fa fa-times"></i>
+                    </span>
+
+                    <div className="logo-box">
+                        <Link href="/" aria-label="logo image">
+                            <Image
+                                src="/assets/images/resources/logo-2.png"
+                                width={140}
+                                height={50}
+                                alt="Logo"
+                            />
+                        </Link>
+                    </div>
+
+                    <div className="mobile-nav__container">
+                        <ul className="main-menu__list">
+                            {menuData.map((item, index) => (
+                                <MobileMenuItem key={index} {...item} />
+                            ))}
+                        </ul>
+                    </div>
+
+                    <ul className="mobile-nav__contact list-unstyled">
+                        <li>
+                            <i className="fa fa-envelope"></i>
+                            <a href="mailto:needhelp@erepair.com">needhelp@erepair.com</a>
+                        </li>
+                        <li>
+                            <i className="fas fa-phone"></i>
+                            <a href="tel:666-888-0000">666 888 0000</a>
+                        </li>
+                    </ul>
+
+                    <div className="mobile-nav__top">
+                        <div className="mobile-nav__social">
+                            <a href="#" className="fab fa-twitter"></a>
+                            <a href="#" className="fab fa-facebook-square"></a>
+                            <a href="#" className="fab fa-pinterest-p"></a>
+                            <a href="#" className="fab fa-instagram"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Search Popup */}
+            <div className={`search-popup ${isSearchOpen ? 'active' : ''}`}>
+                <div
+                    className="search-popup__overlay search-toggler"
+                    onClick={toggleSearch}
+                ></div>
+
+                <div className="search-popup__content">
+                    <div className="search-form-wrapper">
+                        <label htmlFor="search" className="sr-only">
+                            search here
+                        </label>
+                        <input
+                            type="text"
+                            id="search"
+                            placeholder="Search Here..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    handleSearch();
+                                }
+                            }}
+                        />
+                        <button
+                            onClick={handleSearch}
+                            aria-label="search submit"
+                            className="thm-btn"
+                        >
+                            <i className="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Scroll to Top */}
+            <a
+                href="#"
+                className="scroll-to-target scroll-to-top"
+                onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+            >
+                <span className="scroll-to-top__wrapper">
+                    <span className="scroll-to-top__inner"></span>
+                </span>
+                <span className="scroll-to-top__text">Go Back Top</span>
+            </a>
+
+
+        </>
     );
 }

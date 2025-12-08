@@ -89,34 +89,34 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
 
-        {/* Core JS */}
-        <Script src="/assets/js/jquery-3.6.0.min.js" strategy="beforeInteractive" />
-        <Script src="/assets/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
+   
+        {/* <Script src="/assets/js/jquery-3.6.0.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
 
-        {/* Plugins */}
-        <Script src="/assets/js/jarallax.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/jquery.ajaxchimp.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/jquery.appear.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/swiper.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/jquery.circle-progress.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/jquery.magnific-popup.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/jquery.validate.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/odometer.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/wNumb.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/wow.js" strategy="lazyOnload" />
-        <Script src="/assets/js/isotope.js" strategy="lazyOnload" />
-        <Script src="/assets/js/owl.carousel.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/jquery-ui.js" strategy="lazyOnload" />
-        <Script src="/assets/js/jquery.nice-select.min.js" strategy="lazyOnload" />
-        <Script src="/assets/js/countdown.min.js" strategy="lazyOnload" />
+  
+        <Script src="/assets/js/jarallax.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/jquery.ajaxchimp.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/jquery.appear.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/swiper.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/jquery.circle-progress.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/jquery.magnific-popup.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/jquery.validate.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/odometer.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/wNumb.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/wow.js" strategy="afterInteractive" />
+        <Script src="/assets/js/isotope.js" strategy="afterInteractive" />
+        <Script src="/assets/js/owl.carousel.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/jquery-ui.js" strategy="afterInteractive" />
+        <Script src="/assets/js/jquery.nice-select.min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/countdown.min.js" strategy="afterInteractive" />
 
-        {/* ✅ GSAP must load BEFORE script.js */}
-        <Script src="/assets/js/gsap/gsap.js" strategy="beforeInteractive" />
-        <Script src="/assets/js/gsap/ScrollTrigger.js" strategy="beforeInteractive" />
-        <Script src="/assets/js/gsap/SplitText.js" strategy="beforeInteractive" />
+     
+        <Script src="/assets/js/gsap/gsap.js" strategy="afterInteractive" />
+        <Script src="/assets/js/gsap/ScrollTrigger.js" strategy="afterInteractive" />
+        <Script src="/assets/js/gsap/SplitText.js" strategy="afterInteractive" />
 
-        {/* Template Main JS */}
-        <Script src="/assets/js/script.js" strategy="lazyOnload" />
+        <Script src="/assets/js/script.js" strategy="afterInteractive" /> */}
+
       </body>
     </html>
   );
