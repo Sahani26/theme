@@ -21,7 +21,7 @@ h2.main-slider__title {
     .mobile-nav__content .logo-box {
         margin-bottom: 10px;
     }
-    .mobile-nav__wrapper.expanded,.testimonial-one,.about-one,.video-one ,.project-one {
+ .testimonial-one,.about-one,.video-one ,.project-one {
         padding: 20px;
     }
 }
