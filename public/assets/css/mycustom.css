@@ -1,18 +1,24 @@
 h3.odometer {
     color: #fff;
 }
- .main-slider__content,h2.main-slider__title{
-    text-align: left;
- }
 
- @media only screen and (max-width: 480px){
-        .main-slider .item ,.services-one{
+.main-slider__content,
+h2.main-slider__title {
+    text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .main-slider .item,
+    .services-one {
         padding: 25px 0 !important;
     }
-    .main-menu__logo{
-            padding: 5px 0;
+
+    .main-menu__logo {
+        padding: 5px 0;
     }
-    .mobile-nav__content .logo-box{
+
+    .mobile-nav__content .logo-box {
         margin-bottom: 10px;
     }
- }
+}

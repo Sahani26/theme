@@ -58,7 +58,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/assets/css/nice-select.css" />
         <link rel="stylesheet" href="/assets/css/jquery-ui.css" />
         <link rel="stylesheet" href="/assets/css/twentytwenty.css" />
-       
+
 
         {/* Module CSS */}
         <link rel="stylesheet" href="/assets/css/module-css/slider.css" />
@@ -84,13 +84,13 @@ export default function RootLayout({
         {/* Template Styles */}
         <link rel="stylesheet" href="/assets/css/style.css" />
         <link rel="stylesheet" href="/assets/css/responsive.css" />
-         <link rel="stylesheet" href="/assets/css/mycustom.css" />
+        <link rel="stylesheet" href="/assets/css/mycustom.css" />
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-     {/* <Script src="/assets/js/wow.js" strategy="afterInteractive" /> */}
-   
+        {/* <Script src="/assets/js/wow.js" strategy="afterInteractive" /> */}
+
         {/* <Script src="/assets/js/jquery-3.6.0.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
 

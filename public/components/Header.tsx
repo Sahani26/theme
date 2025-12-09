@@ -15,14 +15,41 @@ export default function Header() {
     const pathname = usePathname();
     const headerRef = useRef<HTMLElement>(null);
 
-    // Handle sticky header on scroll
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setIsSticky(true);
-            } else {
-                setIsSticky(false);
+            const scrollY = window.scrollY;
+
+            /* ---------- Sticky Header ---------- */
+            const stickyMenus = document.querySelectorAll(".stricked-menu");
+            stickyMenus.forEach((menu) => {
+                if (scrollY > 130) {
+                    menu.classList.add("stricky-fixed");
+                } else {
+                    menu.classList.remove("stricky-fixed");
+                }
+            });
+
+            /* ---------- One Page Sticky Header ---------- */
+            const onePageHeader = document.querySelector(".sticky-header--one-page");
+            if (onePageHeader) {
+                if (scrollY > 130) {
+                    onePageHeader.classList.add("active");
+                } else {
+                    onePageHeader.classList.remove("active");
+                }
             }
+
+            /* ---------- Scroll To Top Button ---------- */
+            const scrollToTopBtn = document.querySelector(".scroll-to-top");
+            if (scrollToTopBtn) {
+                if (scrollY > 500) {
+                    scrollToTopBtn.classList.add("show");
+                } else {
+                    scrollToTopBtn.classList.remove("show");
+                }
+            }
+ 
+            setIsSticky(scrollY > 100);
         };
 
         window.addEventListener("scroll", handleScroll);
