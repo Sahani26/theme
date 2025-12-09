@@ -37,7 +37,7 @@ export default function Brands() {
       <div className="container">
         <div className="brand-one__inner">
           <Carousel
-            autoPlay
+            autoPlay={true}
             infiniteLoop
             interval={3000}
             transitionTime={800}

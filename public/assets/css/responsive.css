@@ -792,7 +792,7 @@
     }
 
     .services-one__inner {
-        padding: 60px 30px 10px;
+                padding: 20px 10px 10px;
     }
 
     .services-one__service-list li {
@@ -806,7 +806,7 @@
 
     .services-one__single {
         padding-right: 0px;
-        margin-bottom: 41px;
+        margin-bottom: 20px;
     }
 
     .services-one__service-list li:last-child .services-one__single {

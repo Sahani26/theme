@@ -25,9 +25,9 @@ export default function Slider() {
   return (
     <section className="main-slider">
       <Carousel
-        autoPlay={true}
+        autoPlay={false}
         infiniteLoop
-       interval={4000}
+        interval={4000}
         showThumbs={false}
         showStatus={false}
         swipeable
@@ -76,10 +76,24 @@ export default function Slider() {
                   </p>
 
                   <div className="main-slider__btn-box">
-                    <a href="/about" className="main-slider__btn thm-btn">
-                      Learn More
+                    <a href="tel:+919695839080" className="main-slider__btn thm-btn call-btn">
+                      <i className="fa fa-phone"></i>
+                      Call Now
+                    </a>
+
+                    <a
+                      href="https://wa.me/919695839080"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="main-slider__btn thm-btn whatsapp-btn"
+                    >
+                      <span className="icon-whatsapp"></span>
+
+                      WhatsApp
                     </a>
                   </div>
+
+
                 </div>
               </div>
             </div>

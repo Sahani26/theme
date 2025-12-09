@@ -15,46 +15,60 @@ export default function Header() {
     const pathname = usePathname();
     const headerRef = useRef<HTMLElement>(null);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
+   useEffect(() => {
+    const handleScroll = () => {
+        const scrollY = window.scrollY;
 
-            /* ---------- Sticky Header ---------- */
-            const stickyMenus = document.querySelectorAll(".stricked-menu");
-            stickyMenus.forEach((menu) => {
-                if (scrollY > 130) {
-                    menu.classList.add("stricky-fixed");
-                } else {
-                    menu.classList.remove("stricky-fixed");
-                }
-            });
-
-            /* ---------- One Page Sticky Header ---------- */
-            const onePageHeader = document.querySelector(".sticky-header--one-page");
-            if (onePageHeader) {
-                if (scrollY > 130) {
-                    onePageHeader.classList.add("active");
-                } else {
-                    onePageHeader.classList.remove("active");
-                }
+        /* ---------- Sticky Header ---------- */
+        const stickyMenus = document.querySelectorAll(".stricked-menu");
+        stickyMenus.forEach((menu) => {
+            if (scrollY > 130) {
+                menu.classList.add("stricky-fixed");
+            } else {
+                menu.classList.remove("stricky-fixed");
             }
+        });
 
-            /* ---------- Scroll To Top Button ---------- */
-            const scrollToTopBtn = document.querySelector(".scroll-to-top");
-            if (scrollToTopBtn) {
-                if (scrollY > 500) {
-                    scrollToTopBtn.classList.add("show");
-                } else {
-                    scrollToTopBtn.classList.remove("show");
-                }
+        /* ---------- One Page Sticky Header ---------- */
+        const onePageHeader = document.querySelector(".sticky-header--one-page");
+        if (onePageHeader) {
+            if (scrollY > 130) {
+                onePageHeader.classList.add("active");
+            } else {
+                onePageHeader.classList.remove("active");
             }
- 
-            setIsSticky(scrollY > 100);
-        };
+        }
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        /* ---------- Scroll To Top Button ---------- */
+        const scrollToTopBtn = document.querySelector(".scroll-to-top");
+        if (scrollToTopBtn) {
+            if (scrollY > 500) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        }
+
+        /* ---------- Scroll progress (width decrease) ---------- */
+        const scrollInner = document.querySelector<HTMLElement>(".scroll-to-top__inner");
+
+        if (scrollInner) {
+            const docHeight =
+                document.documentElement.scrollHeight - window.innerHeight;
+
+            const scrollPercent = Math.min((scrollY / docHeight) * 100, 100);
+
+            // width decreases on scroll
+            scrollInner.style.width = `${100 - scrollPercent}%`;
+        }
+
+        setIsSticky(scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
     // Lock body scroll when mobile nav or search is open
     useEffect(() => {
@@ -234,28 +248,46 @@ export default function Header() {
                 {/* Top Bar */}
                 <div className="main-menu__top">
                     <div className="main-menu__top-inner">
-                        <ul className="list-unstyled main-menu__contact-list">
-                            <li>
-                                <div className="icon">
-                                    <i className="icon-envelope"></i>
-                                </div>
-                                <div className="text">
-                                    <p>
-                                        <a href="mailto:example@gmail.com">
-                                            example@gmail.com
-                                        </a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="icon">
-                                    <i className="icon-location"></i>
-                                </div>
-                                <div className="text">
-                                    <p>12 Green Road, 05 New York</p>
-                                </div>
-                            </li>
-                        </ul>
+                  <ul className="list-unstyled main-menu__contact-list">
+    {/* Email */}
+    <li>
+        <div className="icon">
+            <i className="fa fa-envelope"></i>
+        </div>
+        <div className="text header-mail">
+            <p>
+                <a href="mailto:example@gmail.com">
+                    example@gmail.com
+                </a>
+            </p>
+        </div>
+    </li>
+
+    {/* Call */}
+    <li>
+        <div className="icon header-call">
+            <i className="fa fa-phone"></i>
+        </div>
+        <div className="text">
+            <p>
+                <a href="tel:+919695839080">
+                    +91 96958 39080
+                </a>
+            </p>
+        </div>
+    </li>
+
+    {/* Location */}
+    <li>
+        <div className="icon header-map">
+            <i className="fa fa-map-marker"></i>
+        </div>
+        <div className="text">
+            <p>12 Green Road, 05 New York</p>
+        </div>
+    </li>
+</ul>
+
 
                         <div className="main-menu__top-right">
                             <div className="main-menu__social">
@@ -279,8 +311,8 @@ export default function Header() {
                                         <Image
                                             src={Logo}
                                             alt="logo"
-                                            width={150}
-                                            height={50}
+                                            width={180}
+                                            height={60}
                                         />
                                     </Link>
                                 </div>
@@ -309,7 +341,7 @@ export default function Header() {
                             {/* Right Section */}
                             <div className="main-menu__right">
                                 <div className="main-menu__search-and-btn-box">
-                                    <div className="main-menu__search-box">
+                                    {/* <div className="main-menu__search-box">
                                         <a
                                             href="#"
                                             className="main-menu__search search-toggler icon-search-interface-symbol"
@@ -318,7 +350,7 @@ export default function Header() {
                                                 toggleSearch();
                                             }}
                                         ></a>
-                                    </div>
+                                    </div> */}
 
                                     <div className="main-menu__btn-box">
                                         <Link href="/contact" className="main-menu__btn thm-btn">
@@ -361,7 +393,7 @@ export default function Header() {
 
                                 <div className="main-menu__right">
                                     <div className="main-menu__search-and-btn-box">
-                                        <div className="main-menu__search-box">
+                                        {/* <div className="main-menu__search-box">
                                             <a
                                                 href="#"
                                                 className="main-menu__search search-toggler icon-search-interface-symbol"
@@ -370,7 +402,7 @@ export default function Header() {
                                                     toggleSearch();
                                                 }}
                                             ></a>
-                                        </div>
+                                        </div> */}
 
                                         <div className="main-menu__btn-box">
                                             <Link href="/contact" className="main-menu__btn thm-btn">

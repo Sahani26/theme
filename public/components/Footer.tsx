@@ -1,6 +1,8 @@
 import Image from "next/image";
-import footerLogo from "@/public/assets/images/resources/footer-logo-1.png";
+import footerLogo from "@/public/assets/images/resources/Footer-Logo.png";
+
 import footerShape from "@/public/assets/images/shapes/footer-shape-1.png";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -16,9 +18,9 @@ export default function Footer() {
             <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
               <div className="footer-widget__column footer-widget__about">
                 <div className="footer-widget__logo">
-                  <a href="index.html">
+                  <Link href="index.html">
                     <Image src={footerLogo} alt="Footer Logo" />
-                  </a>
+                  </Link>
                 </div>
                 <p className="footer-widget__about-text">
                   Secure other greater pleasures, or else he endures<br />

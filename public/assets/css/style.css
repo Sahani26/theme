@@ -429,7 +429,7 @@ ul {
     height: 35px;
     background: 0 0;
     bottom: 60px;
-    right: -12px;
+    right: -45px;
     z-index: 99;
     opacity: 0;
     visibility: hidden;
@@ -822,12 +822,14 @@ ul {
 .main-menu .main-menu__list>li.current>a::after,
 .main-menu .main-menu__list>li:hover>a,
 .main-menu .main-menu__list>li:hover>a::after,
-.main-menu__contact-list li .text p a:hover,
 .stricky-header .main-menu__list>li.current>a,
 .stricky-header .main-menu__list>li.current>a::after,
 .stricky-header .main-menu__list>li:hover>a,
 .stricky-header .main-menu__list>li:hover>a::after {
     color: var(--erepair-base)
+}
+.main-menu__contact-list li .text p a:hover{
+    color: #e0b537;
 }
 
 .main-menu-three__right,

@@ -7,6 +7,16 @@ h2.main-slider__title {
     text-align: left;
 }
 
+.footer-widget__logo {
+    width: 180px;
+    height: 60px;
+}
+
+.footer-widget__logo img {
+    width: 100%;
+    height: 100%;
+}
+
 @media only screen and (max-width: 600px) {
 
     .main-slider .item,
@@ -21,7 +31,79 @@ h2.main-slider__title {
     .mobile-nav__content .logo-box {
         margin-bottom: 10px;
     }
- .testimonial-one,.about-one,.video-one ,.project-one {
+
+    .testimonial-one,
+    .about-one,
+    .video-one,
+    .project-one,
+    .brand-one__inner {
         padding: 20px;
     }
+
+    .counter-one {
+        margin-top: 0;
+    }
+
+    .services-one__title {
+        margin: 10px 0;
+    }
+
+    .services-one__single {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        align-items: center;
+    }
+
+    p.services-one__text {
+        grid-area: 2 / 1 / 3 / 3;
+    }
+}
+
+.main-slider__btn-box {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.main-slider__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+/* Call icon subtle blue */
+.call-btn i {
+    color: #2196f3;
+    rotate: 90deg;
+}
+
+.icon-whatsapp {
+    background-image: url(../images/resources/whatsapp-logo.png);
+    width: 18px;
+    height: 18px;
+    background-size: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header-call .fa-phone:before {
+    color: #2196f3;
+    font-size: 14px;
+}
+
+.fa-envelope:before {
+    color: #fff;
+    font-size: 14px;
+}
+
+.header-map .fa-map-marker:before {
+    color: #fff;
+    font-size: 14px;
 }

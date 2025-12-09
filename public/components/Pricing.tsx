@@ -2,44 +2,45 @@ import Image from "next/image";
 import shape1 from "@/public/assets/images/shapes/pricing-one-shape-1.png";
 
 export default function Pricing() {
-  const plans = [
-    {
-      name: "Basic Plan",
-      duration: "Per Month",
-      price: "$49",
-      points: [
-        "Mistakes To Avoid",
-        "Your Startup",
-        "Knew About Fonts",
-        "Winning Metric for Your Startup",
-      ],
-      delay: "100ms",
-    },
-    {
-      name: "Regular Plan",
-      duration: "6 Month",
-      price: "$69",
-      points: [
-        "Mistakes To Avoid",
-        "Your Startup",
-        "Knew About Fonts",
-        "Winning Metric for Your Startup",
-      ],
-      delay: "200ms",
-    },
-    {
-      name: "Premium Plan",
-      duration: "Annual",
-      price: "$99",
-      points: [
-        "Mistakes To Avoid",
-        "Your Startup",
-        "Knew About Fonts",
-        "Winning Metric for Your Startup",
-      ],
-      delay: "300ms",
-    },
-  ];
+ const plans = [
+  {
+    name: "Basic Plan",
+    duration: "Per Month",
+    price: "₹1,499",
+    points: [
+      "Home Electrical Repairs",
+      "Minor Plumbing Work",
+      "AC & Fan Servicing",
+      "Customer Support via WhatsApp",
+    ],
+    delay: "100ms",
+  },
+  {
+    name: "Regular Plan",
+    duration: "6 Months",
+    price: "₹7,499",
+    points: [
+      "All Basic Services",
+      "Appliance Installation",
+      "Leakage & Pipe Repairs",
+      "Priority Customer Support",
+    ],
+    delay: "200ms",
+  },
+  {
+    name: "Premium Plan",
+    duration: "Annual",
+    price: "₹13,999",
+    points: [
+      "All Regular Services",
+      "Full Home Maintenance",
+      "Electrical & Plumbing Annual Checkup",
+      "24x7 Support & Emergency Services",
+    ],
+    delay: "300ms",
+  },
+];
+
 
   return (
     <section className="pricing-one">
