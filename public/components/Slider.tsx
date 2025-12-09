@@ -25,9 +25,9 @@ export default function Slider() {
   return (
     <section className="main-slider">
       <Carousel
-        autoPlay
+        autoPlay={true}
         infiniteLoop
-       interval={5000}
+       interval={4000}
         showThumbs={false}
         showStatus={false}
         swipeable

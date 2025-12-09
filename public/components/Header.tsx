@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Logo from "@/public/assets/images/resources/header-logo.png"
 
 export default function Header() {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -249,7 +250,7 @@ export default function Header() {
                                 <div className="main-menu__logo">
                                     <Link href="/">
                                         <Image
-                                            src="/assets/images/resources/logo-1.png"
+                                            src={Logo}
                                             alt="logo"
                                             width={150}
                                             height={50}
@@ -314,7 +315,7 @@ export default function Header() {
                                     <div className="main-menu__logo">
                                         <Link href="/">
                                             <Image
-                                                src="/assets/images/resources/logo-1.png"
+                                                src={Logo}
                                                 alt="logo"
                                                 width={150}
                                                 height={50}
@@ -375,7 +376,7 @@ export default function Header() {
                     <div className="logo-box">
                         <Link href="/" aria-label="logo image">
                             <Image
-                                src="/assets/images/resources/logo-2.png"
+                                src={Logo}
                                 width={140}
                                 height={50}
                                 alt="Logo"
