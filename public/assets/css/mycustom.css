@@ -107,3 +107,7 @@ h2.main-slider__title {
     color: #fff;
     font-size: 14px;
 }
+.page-header__img-1 img {
+    width: 180px;
+    height: 180px;
+}

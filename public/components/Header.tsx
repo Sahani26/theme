@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Logo from "@/public/assets/images/resources/header-logo.png"
+import LogoFooter from '@/public/assets/images/resources/Footer-Logo.png'
 
 export default function Header() {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -216,19 +217,19 @@ export default function Header() {
                 { href: "/maintenance-service", children: "Maintenance Service" }
             ]
         },
-        {
-            dropdown: true,
-            dropdownId: "shop",
-            children: "Shop",
-            items: [
-                { href: "/shop", children: "Products" },
-                { href: "/shop-details", children: "Products Details" },
-                { href: "/cart", children: "Cart" },
-                { href: "/checkout", children: "Checkout" },
-                { href: "/wishlist", children: "Wishlist" },
-                { href: "/account", children: "My Account" }
-            ]
-        },
+        // {
+        //     dropdown: true,
+        //     dropdownId: "shop",
+        //     children: "Shop",
+        //     items: [
+        //         { href: "/shop", children: "Products" },
+        //         { href: "/shop-details", children: "Products Details" },
+        //         { href: "/cart", children: "Cart" },
+        //         { href: "/checkout", children: "Checkout" },
+        //         { href: "/wishlist", children: "Wishlist" },
+        //         { href: "/account", children: "My Account" }
+        //     ]
+        // },
         {
             dropdown: true,
             dropdownId: "blog",
@@ -435,7 +436,7 @@ export default function Header() {
                     <div className="logo-box">
                         <Link href="/" aria-label="logo image">
                             <Image
-                                src={Logo}
+                                src={LogoFooter}
                                 width={140}
                                 height={50}
                                 alt="Logo"

@@ -1,4 +1,4 @@
- 
+
 
 import Image from "next/image";
 import Header from "@/public/components/Header";
@@ -11,6 +11,8 @@ import headerImg from "@/public/assets/images/resources/page-header-img-1.png";
 import serviceImg from "@/public/assets/images/services/service-details-img-5.jpg";
 import serviceBoxImg1 from "@/public/assets/images/services/service-details-img-box-img-1.jpg";
 import serviceBoxImg2 from "@/public/assets/images/services/service-details-img-box-img-2.jpg";
+import GetStartedToday from "../Get-Started-Today/page";
+import OurServiceTab from "../OurServiceTab/page";
 
 export const metadata = {
   title: "Electric Panel Repair | Your Website Name",
@@ -132,41 +134,9 @@ export default function ElectricPanelRepair() {
 
             <div className="col-xl-4 col-lg-5">
               <div className="service-details__sidebar">
-                <div className="service-details__services-box">
-                  <h3 className="service-details__services-title">Our Service</h3>
-                  <ul className="service-details__services-list list-unstyled">
-                    <li className="active"><a href="/services/electric-panel-repair">Electric Panel Repair<span className="icon-arrow-right"></span></a></li>
-                    <li><a href="/services/short-circuit-repair">Short circuit repair<span className="icon-arrow-right"></span></a></li>
-                    <li><a href="/services/commercial-services">Commercial services<span className="icon-arrow-right"></span></a></li>
-                    <li><a href="/services/installing-ceiling-fan">Installing a ceiling fan<span className="icon-arrow-right"></span></a></li>
-                    <li><a href="/services/lighting-fixtures">Lighting & Fixtures<span className="icon-arrow-right"></span></a></li>
-                    <li><a href="/services/maintenance-service">Maintenance Service<span className="icon-arrow-right"></span></a></li>
-                  </ul>
-                </div>
+                <OurServiceTab /> 
 
-                <div className="project-details__get-started">
-                  <h3 className="project-details__get-started-title">Get Started Today</h3>
-                  <p className="project-details__get-started-text">
-                    Pianissimos of dulcimers qui therefore always holds in these matters to this principle
-                  </p>
-                  <ul className="project-details__get-started-points list-unstyled">
-                    <li>
-                      <div className="icon"><span className="icon-call"></span></div>
-                      <p><a href="tel:585858575084">+58 585 857 5084</a></p>
-                    </li>
-                    <li>
-                      <div className="icon"><span className="icon-envelope"></span></div>
-                      <p><a href="mailto:example@gmail.com">example@gmail.com</a></p>
-                    </li>
-                    <li>
-                      <div className="icon"><span className="icon-location"></span></div>
-                      <p>4517 Washington Ave. Manchester,<br /> Kentucky 39495</p>
-                    </li>
-                  </ul>
-                  <div className="project-details__get-started-btn-box">
-                    <a href="#" className="project-details__get-started-btn thm-btn">Get in touch</a>
-                  </div>
-                </div>
+                <GetStartedToday />
               </div>
             </div>
 
