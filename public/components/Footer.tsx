@@ -65,6 +65,8 @@ export default function Footer() {
                   <li><a href="maintenance-service.html">European Lard Sration</a></li>
                   <li><a href="maintenance-service.html">Electric Maintenance</a></li>
                   <li><a href="installing-ceiling-fan.html">Colling Service</a></li>
+
+                   <li><Link href="admin/add-blog">add-blog</Link></li>
                 </ul>
               </div>
             </div>
@@ -105,6 +107,7 @@ export default function Footer() {
               <li><a href="contact.html">Support</a></li>
               <li><a href="about.html">Terms and Condition</a></li>
               <li><a href="about.html">Privacy and Policy</a></li>
+              <li><Link href="admin/add-blog">add-blog</Link></li>
             </ul>
           </div>
         </div>
